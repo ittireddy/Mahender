@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  tasks:
+  - name: touching /etc/mahender
+    file: path=/etc/mahender state=touch owner=root group=sys mode=1777
+
+  - name: Creating link
+    file:
+     src: /etc/mahender
+     dest: /etc/m
+     state: link
+
+  - name: Removing unlink  
+    file:
+     path: /etc/m
+     state: absent
+  
